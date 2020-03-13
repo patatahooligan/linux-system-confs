@@ -1,0 +1,3 @@
+Server = https://mirror.osbeck.com/archlinux/$repo/os/$arch
+Server = https://mirror.chaoticum.net/arch/$repo/os/$arch
+Server = https://ger.mirror.pkgbuild.com/$repo/os/$arch
