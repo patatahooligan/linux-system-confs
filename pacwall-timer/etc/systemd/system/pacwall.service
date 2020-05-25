@@ -1,0 +1,6 @@
+[Unit]
+Description=Generate a new pacwall image to be used as a background
+
+[Service]
+Type=exec
+ExecStart=pacwall -i -b black -r0.85 -s '#FFFFFF10' -o /var/pictures/pacwall.png
