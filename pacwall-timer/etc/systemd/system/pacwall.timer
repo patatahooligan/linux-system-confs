@@ -1,8 +1,0 @@
-[Unit]
-Description=Periodically update the background image with pacwall's output
-
-[Timer]
-OnUnitInactiveSec=3d
-
-[Install]
-WantedBy=graphical.target
