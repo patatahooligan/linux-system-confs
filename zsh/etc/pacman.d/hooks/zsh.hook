@@ -1,0 +1,14 @@
+# Create a file whose modification date denotes the last time the installed
+# packages were modified. This can then be used by zsh to trigger a rehash.
+
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Path
+Target = usr/bin/*
+
+[Action]
+Depends = zsh
+When = PostTransaction
+Exec = /usr/bin/install -Dm644 /dev/null /var/cache/zsh/pacman
