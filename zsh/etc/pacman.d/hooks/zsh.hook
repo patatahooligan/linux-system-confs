@@ -9,6 +9,7 @@ Type = Path
 Target = usr/bin/*
 
 [Action]
+Description = Store update time so zsh knows to rehash its cache
 Depends = zsh
 When = PostTransaction
 Exec = /usr/bin/install -Dm644 /dev/null /var/cache/zsh/pacman
