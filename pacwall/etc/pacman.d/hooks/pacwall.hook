@@ -1,0 +1,12 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Updating the pacwall wallpaper (asynchronously)
+Depends = pacwall-git
+When = PostTransaction
+Exec = /usr/bin/systemctl start pacwall.service
