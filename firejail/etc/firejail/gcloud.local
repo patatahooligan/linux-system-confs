@@ -1,0 +1,5 @@
+noblacklist ${HOME}/.ssh
+blacklist ${HOME}/.ssh/id_rsa
+blacklist ${HOME}/.ssh/id_rsa.pub
+
+noblacklist /opt/google-cloud-sdk
