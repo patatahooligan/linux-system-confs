@@ -87,9 +87,15 @@ fzf-cd-widget() {
     zle redisplay
     return 0
   fi
-  cd "$dir"
-  unset dir # ensure this doesn't end up appearing in prompt expansion
+  if [ -z "$BUFFER" ]; then
+    BUFFER="cd ${(q)dir}"
+    zle accept-line
+  else
+    print -sr "cd ${(q)dir}"
+    cd "$dir"
+  fi
   local ret=$?
+  unset dir # ensure this doesn't end up appearing in prompt expansion
   zle fzf-redraw-prompt
   return $ret
 }
@@ -100,7 +106,7 @@ bindkey '\ec' fzf-cd-widget
 fzf-history-widget() {
   local selected num
   setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
-  selected=( $(fc -rl 1 | perl -ne 'print if !$seen{(/^\s*[0-9]+\s+(.*)/, $1)}++' |
+  selected=( $(fc -rl 1 | perl -ne 'print if !$seen{(/^\s*[0-9]+\**\s+(.*)/, $1)}++' |
     FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-90%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd)) )
   local ret=$?
   if [ -n "$selected" ]; then
