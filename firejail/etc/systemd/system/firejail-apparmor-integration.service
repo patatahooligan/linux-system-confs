@@ -1,0 +1,19 @@
+# Adapted from the default apparmor service. Some of these dependencies might be
+# irrelevant, but let's keep them to be safe.
+[Unit]
+Description=Load Firejail's AppArmor profiles
+DefaultDependencies=no
+Before=sysinit.target
+After=systemd-journald-audit.socket
+# profile cache
+After=var.mount var-lib.mount
+ConditionSecurity=apparmor
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/apparmor_parser -r /etc/apparmor.d/firejail-default
+ExecStop=/usr/bin/apparmor_parser -R /etc/apparmor.d/firejail-default
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
