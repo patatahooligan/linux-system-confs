@@ -1,1 +1,4 @@
 ignore seccomp
+
+noblacklist ${HOME}/devel/csgo-config
+whitelist ${HOME}/devel/csgo-config
