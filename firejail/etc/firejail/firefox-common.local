@@ -1,0 +1,2 @@
+# To allow symlinking to configurations/themes downloaded as git repos
+whitelist ${HOME}/devel
