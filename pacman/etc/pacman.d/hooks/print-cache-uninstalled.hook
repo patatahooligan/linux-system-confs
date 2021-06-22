@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Checking for leftover uninstalled packages in cache
+When = PostTransaction
+Exec = /usr/bin/paccache -duk0
