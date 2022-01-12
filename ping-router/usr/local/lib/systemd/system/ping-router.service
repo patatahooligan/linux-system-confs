@@ -4,7 +4,7 @@ Documentation=man:ping-router(7)
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/ping 192.168.1.254 -q
+ExecStart=/usr/bin/ping 192.168.1.1 -q
 Restart=always
 RestartSec=5
 KillSignal=SIGINT
