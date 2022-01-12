@@ -6,4 +6,4 @@ Target = *
 [Action]
 Description = Removing old versions of installed packages from cache
 When = PostTransaction
-Exec = /usr/bin/paccache -rqk2
+Exec = /usr/bin/paccache -rqk5
