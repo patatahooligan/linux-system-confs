@@ -1,0 +1,10 @@
+[Unit]
+Description=Play 10Hz tone
+#Documentation=
+After=pipewire.service
+
+[Service]
+ExecStart=/usr/bin/pacat --rate=8000 /usr/local/share/tone-10hz/tone-10hz.wav
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=Play tone-10hz.wav every 25 minutes
+
+[Timer]
+OnBootSec=25min
+OnUnitActiveSec=25min
+
+[Install]
+WantedBy=default.target
