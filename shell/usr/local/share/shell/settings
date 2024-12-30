@@ -1,0 +1,29 @@
+# This file has common settings to be shared between different shells.
+# This should be sourced, not executed from the command line. The syntax
+# is bash-compatible and it should work on other shells like zsh and
+# fish.
+alias bat='bat --pager="less -FSR" --wrap=never'
+alias eza='eza -la --git --color-scale all'
+alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+alias less='less -SR'
+alias ls='ls --color=auto'
+alias ip='ip --color=auto'
+alias neovide='neovide --fork'
+
+alias ggrep='git grep -nC3'
+alias gsed='git --no-pager grep -z --full-name -l "." | xargs -0 sed -i'
+
+# Running docker commands with the docker system service is equivalent
+# to root access. By extension, adding our user to the docker group
+# (allows interacting with the docker daemon) is equivalent to
+# passwordless sudo privileges. This alias makes it easier to escalate
+# privileges only when required and only with a password prompt.
+alias sudock='sudo -g docker'
+
+alias man='batman'
+
+export MANWIDTH=80
+export CMAKE_EXPORT_COMPILE_COMMANDS=true
+
+export GPG_TTY=$(tty)
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
