@@ -1,0 +1,11 @@
+#!/bin/sh
+# Remove the trailing newline at the end of a file. This is generally
+# *bad* because it deviates from the POSIX standard and might confuse
+# some CLI tools. However, sometimes when working with other people's
+# code we might want to avoid noise from trailing newline changes.
+
+set -eu
+
+# TODO: Try doing this in perl directly, rather than as an `sh` script
+# that calls `perl`.
+perl -pi -e 'chomp if eof' $1
