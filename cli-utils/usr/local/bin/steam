@@ -1,0 +1,11 @@
+#!/bin/sh
+# Many steam games expect to have a "primary" display. This concept does
+# not natively exist on wayland, and sway does not seem to have a way to
+# set it. We can run the 'xrandr' command in sway's config but this
+# comes with its own set of problems, such as race conditions during
+# initialization and apparently it even resets at some points with no
+# clear indication as to why. Maybe if all X apps close xwayland stops
+# and loses its configuration? In any case, running this before steam
+# launches seems to be the safest bet.
+xrandr --output DP-1 --primary
+/usr/bin/steam "$@"
